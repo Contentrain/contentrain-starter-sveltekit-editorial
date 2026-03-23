@@ -2,6 +2,14 @@
   import type { PageData } from "./$types";
 
   export let data: PageData;
+
+  type ModelField = {
+    type?: string;
+  };
+
+  function fieldEntries(fields?: Record<string, ModelField>) {
+    return Object.entries(fields ?? {}) as [string, ModelField][];
+  }
 </script>
 
 <main class="shell architecture-shell">
@@ -45,7 +53,7 @@
           <div class="schema-block">
             <strong>{model.id}</strong>
             <div class="chip-list">
-              {#each Object.entries(model.fields ?? {}) as [fieldName, definition]}
+              {#each fieldEntries(model.fields) as [fieldName, definition]}
                 <span class="field-chip">{fieldName}: {definition.type ?? "unknown"}</span>
               {/each}
             </div>
