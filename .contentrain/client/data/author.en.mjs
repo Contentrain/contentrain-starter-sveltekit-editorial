@@ -1,0 +1,16 @@
+export default [
+  {
+    "avatar": "https://images.unsplash.com/photo-1517014038083-2e0248ec1fd4?auto=format&fit=crop&fm=jpg&q=80&w=800",
+    "bio": "Writes about product language, editorial systems, and independent publishing.",
+    "id": "ada-yalcin",
+    "name": "Ada Yalcin",
+    "role": "Editor"
+  },
+  {
+    "avatar": "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?auto=format&fit=crop&fm=jpg&q=80&w=800",
+    "bio": "Covers interfaces, small publishing tools, and content operations.",
+    "id": "leo-rossi",
+    "name": "Leo Rossi",
+    "role": "Contributing Writer"
+  }
+]

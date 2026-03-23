@@ -1,0 +1,6 @@
+export default {
+  "default_locale": "en",
+  "site_name": "Margin Notes",
+  "site_tagline": "A modern editorial starter for essays, journals, and small digital publications.",
+  "theme_name": "editorial_dawn"
+}

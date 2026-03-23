@@ -1,0 +1,22 @@
+export default {
+  "cta_href": "/",
+  "cta_label": "Support the journal",
+  "items": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/architecture",
+      "label": "Architecture"
+    },
+    {
+      "href": "/stories/starter-kits-need-editorial-judgment",
+      "label": "Featured story"
+    },
+    {
+      "href": "https://ai.contentrain.io/packages/sdk.html",
+      "label": "SDK"
+    }
+  ]
+}

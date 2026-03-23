@@ -1,0 +1,20 @@
+{
+  "display_name": "Contentrain SvelteKit Editorial",
+  "repository_name": "contentrain-starter-sveltekit-editorial",
+  "repository_description": "SvelteKit editorial starter with structured Contentrain content and a generated SDK client.",
+  "repository_topics": ["contentrain", "sveltekit", "starter", "editorial", "publication", "typescript"],
+  "visibility": "public",
+  "template_repository": true,
+  "framework": "sveltekit",
+  "node_version": "22",
+  "package_manager": "pnpm@10.17.0",
+  "install_command": "pnpm install",
+  "check_command": "pnpm check",
+  "build_command": "pnpm build",
+  "preview_command": "pnpm preview",
+  "deploy_targets": [
+    { "provider": "vercel", "output": "build", "command": "pnpm deploy:vercel" },
+    { "provider": "netlify", "output": "build", "command": "pnpm deploy:netlify" },
+    { "provider": "cloudflare-pages", "output": "build", "command": "pnpm deploy:cloudflare" }
+  ]
+}

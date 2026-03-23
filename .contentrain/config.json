@@ -1,0 +1,15 @@
+{
+  "domains": [
+    "system",
+    "editorial"
+  ],
+  "locales": {
+    "default": "en",
+    "supported": [
+      "en"
+    ]
+  },
+  "stack": "sveltekit",
+  "version": 1,
+  "workflow": "auto-merge"
+}
