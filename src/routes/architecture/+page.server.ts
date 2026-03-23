@@ -15,9 +15,6 @@ type ModelSchema = {
 
 export const load: PageServerLoad = async () => {
   const rootDir = process.cwd();
-  const starterConfig = JSON.parse(
-    await readFile(path.join(rootDir, "contentrain.starter.json"), "utf8"),
-  ) as { domains: string[] };
   const modelDir = path.join(rootDir, ".contentrain", "models");
   const modelFiles = (await readdir(modelDir)).sort();
   const models = await Promise.all(
@@ -25,9 +22,12 @@ export const load: PageServerLoad = async () => {
       JSON.parse(await readFile(path.join(modelDir, file), "utf8")) as ModelSchema,
     ),
   );
+  const domains = [...new Set(models.map((model) => model.domain))].sort((left, right) =>
+    left.localeCompare(right, "en"),
+  );
 
   return {
-    groups: starterConfig.domains.map((domain) => ({
+    groups: domains.map((domain) => ({
       domain,
       models: models.filter((model) => model.domain === domain),
     })),
