@@ -1,0 +1,12 @@
+{
+  "editorial-systems": {
+    "source": "import",
+    "status": "draft",
+    "updated_by": "contentrain-starters"
+  },
+  "sveltekit": {
+    "source": "import",
+    "status": "draft",
+    "updated_by": "contentrain-starters"
+  }
+}

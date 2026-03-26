@@ -6,6 +6,7 @@ cover_image: "https://images.unsplash.com/photo-1752659504453-fe55d292efb9?auto=
 excerpt: Lean runtime, clean routes, and enough flexibility for ambitious editorial systems.
 published_at: 2026-02-19
 reading_time: 5
+slug: why-sveltekit-works-for-small-publications
 title: Why SvelteKit works for small digital publications
 ---
 
