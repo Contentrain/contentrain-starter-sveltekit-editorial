@@ -23,7 +23,14 @@ pnpm dev
 - `pnpm check`
 - `pnpm build`
 - `pnpm preview`
+- `pnpm deploy:netlify`
 - `pnpm contentrain:generate`
+
+## Demo routes
+
+- `/`
+- `/stories/starter-kits-need-editorial-judgment`
+- `/architecture`
 
 ## Contentrain
 
@@ -35,7 +42,6 @@ pnpm dev
 
 ## Deploy
 
-- Vercel: `pnpm deploy:vercel`
-- Netlify: `pnpm deploy:netlify`
-- Cloudflare Pages: `pnpm deploy:cloudflare`
-- Static output directory: `build`
+- Netlify build command: `pnpm deploy:netlify`
+- Netlify publish directory: `build`
+- `netlify.toml` is committed in the starter root
