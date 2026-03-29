@@ -4,6 +4,10 @@
 
 Editorial starter for journals, essays, and smaller publication sites with a lighter runtime.
 
+![Contentrain SvelteKit Editorial cover](./media/cover.png)
+
+![Contentrain SvelteKit Editorial preview](./media/preview.gif)
+
 ## Contentrain Ecosystem
 
 - SDK and CLI: [ai.contentrain.io/packages/sdk.html](https://ai.contentrain.io/packages/sdk.html)
