@@ -11,5 +11,5 @@
   },
   "stack": "sveltekit",
   "version": 1,
-  "workflow": "auto-merge"
+  "workflow": "review"
 }
