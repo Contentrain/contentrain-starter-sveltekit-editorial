@@ -1,5 +1,9 @@
 {
+  "id": "author",
+  "kind": "collection",
   "domain": "editorial",
+  "i18n": true,
+  "title_field": "name",
   "fields": {
     "avatar": {
       "type": "image"
@@ -17,8 +21,5 @@
     "social_url": {
       "type": "url"
     }
-  },
-  "i18n": true,
-  "id": "author",
-  "kind": "collection"
+  }
 }

@@ -1,5 +1,9 @@
 {
+  "id": "blog-post",
+  "kind": "document",
   "domain": "editorial",
+  "i18n": true,
+  "title_field": "title",
   "fields": {
     "author": {
       "model": "author",
@@ -32,8 +36,5 @@
       "required": true,
       "type": "string"
     }
-  },
-  "i18n": true,
-  "id": "blog-post",
-  "kind": "document"
+  }
 }

@@ -6,9 +6,6 @@ const config = {
   preprocess: vitePreprocess(),
   kit: {
     adapter: adapter(),
-    alias: {
-      "#contentrain": "./.contentrain/client/index.mjs",
-    },
   },
 };
 
