@@ -1,4 +1,5 @@
-<!-- cover -->
+<p align="center"><img src=".github/cover.png" alt="Contentrain SvelteKit editorial starter — content in Git" width="100%"></p>
+
 # Contentrain SvelteKit Editorial
 
 An editorial starter for journals, essays, and small publications, built with SvelteKit and content managed by [Contentrain](https://ai.contentrain.io), the content governance ecosystem for teams and AI agents.
@@ -62,9 +63,14 @@ The build output is a static site in `build/`. `netlify.toml` is included: build
 
 ## Contentrain
 
+Contentrain has four parts: the open-source tools, Studio, Migrate and Bridge.
+
 - SDK, CLI, and MCP docs: [ai.contentrain.io](https://ai.contentrain.io)
 - Query SDK: [ai.contentrain.io/packages/sdk](https://ai.contentrain.io/packages/sdk)
 - Contentrain Studio: [contentrain.io/studio](https://contentrain.io/studio)
+- Open-source tools (MIT): [github.com/Contentrain/ai](https://github.com/Contentrain/ai)
+- Migrate, WordPress to Astro: [migrate.contentrain.io](https://migrate.contentrain.io)
+- Bridge, a free WordPress plugin that exports content as a Contentrain store: [github.com/Contentrain/wordpress-bridge](https://github.com/Contentrain/wordpress-bridge)
 
 ## License
 
