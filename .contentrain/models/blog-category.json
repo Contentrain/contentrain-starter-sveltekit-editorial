@@ -1,5 +1,9 @@
 {
+  "id": "blog-category",
+  "kind": "collection",
   "domain": "editorial",
+  "i18n": true,
+  "title_field": "name",
   "fields": {
     "name": {
       "required": true,
@@ -13,8 +17,5 @@
     "summary": {
       "type": "text"
     }
-  },
-  "i18n": true,
-  "id": "blog-category",
-  "kind": "collection"
+  }
 }

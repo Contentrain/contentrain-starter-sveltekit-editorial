@@ -4,6 +4,7 @@
 // Re-generate with: npx contentrain-query generate
 
 export type ContentStatus = 'draft' | 'published' | 'in_review' | 'rejected' | 'archived'
+export type WhereOp = 'eq' | 'ne' | 'gt' | 'gte' | 'lt' | 'lte' | 'in' | 'contains'
 
 export interface Author {
   id: string
@@ -23,14 +24,13 @@ export interface BlogCategory {
 
 export interface BlogPost {
   slug: string
-  content: string
-  author: string
-  categories?: string[]
+  body: string
+  author: string | Author
+  categories?: Array<string | BlogCategory>
   cover_image?: string
   excerpt?: string
   published_at: string
   reading_time?: number
-  slug: string
   title: string
 }
 
@@ -65,17 +65,19 @@ export interface SiteSettings {
 export interface QueryBuilder<T> {
   locale(lang: string): QueryBuilder<T>
   where<K extends keyof T>(field: K, value: T[K]): QueryBuilder<T>
+  where<K extends keyof T>(field: K, op: WhereOp, value: unknown): QueryBuilder<T>
   sort<K extends keyof T>(field: K, order?: 'asc' | 'desc'): QueryBuilder<T>
   limit(n: number): QueryBuilder<T>
   offset(n: number): QueryBuilder<T>
-  include(...fields: string[]): QueryBuilder<T>
+  include<K extends keyof T & string>(...fields: K[]): QueryBuilder<T>
+  count(): number
   first(): T | undefined
   all(): T[]
 }
 
 export interface SingletonAccessor<T> {
   locale(lang: string): SingletonAccessor<T>
-  include(...fields: string[]): SingletonAccessor<T>
+  include<K extends keyof T & string>(...fields: K[]): SingletonAccessor<T>
   get(): T
 }
 
@@ -89,8 +91,11 @@ export interface DictionaryAccessor {
 export interface DocumentQuery<T> {
   locale(lang: string): DocumentQuery<T>
   where<K extends keyof T>(field: K, value: T[K]): DocumentQuery<T>
-  include(...fields: string[]): DocumentQuery<T>
+  where<K extends keyof T>(field: K, op: WhereOp, value: unknown): DocumentQuery<T>
+  sort<K extends keyof T>(field: K, order?: 'asc' | 'desc'): DocumentQuery<T>
+  include<K extends keyof T & string>(...fields: K[]): DocumentQuery<T>
   bySlug(slug: string): T | undefined
+  count(): number
   first(): T | undefined
   all(): T[]
 }

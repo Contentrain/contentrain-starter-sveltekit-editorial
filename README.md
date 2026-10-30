@@ -1,57 +1,71 @@
-> Source of truth: this starter is exported from the `contentrain-starters` monorepo.
-> Internal starter id: `sveltekit-editorial`.
+<!-- cover -->
 # Contentrain SvelteKit Editorial
 
-Editorial starter for journals, essays, and smaller publication sites with a lighter runtime.
-
-![Contentrain SvelteKit Editorial cover](./media/cover.png)
+An editorial starter for journals, essays, and small publications, built with SvelteKit and content managed by [Contentrain](https://ai.contentrain.io), the content governance ecosystem for teams and AI agents.
 
 ![Contentrain SvelteKit Editorial preview](./media/preview.gif)
 
-## Contentrain Ecosystem
+## What it shows
 
-- SDK and CLI: [ai.contentrain.io/packages/sdk.html](https://ai.contentrain.io/packages/sdk.html)
-- Product guides: [docs.contentrain.io](https://docs.contentrain.io/)
-- Content operations UI: [studio.contentrain.io](https://studio.contentrain.io)
+- Stories, authors, and categories as Contentrain models, with relations resolved at build time (`include("author", "categories")`).
+- Site settings, navigation, footer, and SEO defaults as singletons, read in the root layout.
+- Server `load` functions reading the generated `#contentrain` client, the setup the [SvelteKit guide](https://ai.contentrain.io/guides/frameworks#sveltekit) documents.
+- A fully prerendered static site (`@sveltejs/adapter-static`), with no runtime content fetches.
+- An `/architecture` page that lists the models in `.contentrain/models`.
 
-## Quick Start
+Routes: `/`, `/stories/[slug]` (one page per story), `/architecture`.
+
+## Use this template
+
+1. Click **Use this template** on GitHub to create your own repository.
+2. Optional: connect the new repository in [Contentrain Studio](https://contentrain.io/studio). The repository already contains `.contentrain/`, so Studio opens it as a project. Edits made in Studio are committed to the `contentrain` branch of your repository.
+
+## Quick start
+
+Node 22 and pnpm are required.
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-## Commands
+| Command | What it does |
+|---|---|
+| `pnpm dev` | Start the dev server |
+| `pnpm check` | Type-check with `svelte-check` |
+| `pnpm build` | Build the static site into `build/` |
+| `pnpm preview` | Serve the built site |
+| `pnpm contentrain:generate` | Regenerate the typed client in `.contentrain/client/` |
+| `pnpm contentrain:validate` | Validate models and content in `.contentrain/` |
 
-- `pnpm dev`
-- `pnpm check`
-- `pnpm build`
-- `pnpm preview`
-- `pnpm deploy:netlify`
-- `pnpm contentrain:generate`
+After you change anything in `.contentrain/models` or `.contentrain/content`, run `pnpm contentrain:generate`.
 
-## Demo routes
+## Content model
 
-- `/`
-- `/stories/starter-kits-need-editorial-judgment`
-- `/architecture`
+| Model | Kind | Domain | Fields |
+|---|---|---|---|
+| `blog-post` | document | editorial | `title`, `slug`, `excerpt`, `cover_image`, `published_at`, `reading_time`, `author` → `author`, `categories` → `blog-category`, Markdown body |
+| `author` | collection | editorial | `name`, `role`, `bio`, `avatar`, `social_url` |
+| `blog-category` | collection | editorial | `name`, `slug`, `summary` |
+| `site-settings` | singleton | system | `site_name`, `site_tagline`, `default_locale`, `theme_name`, `og_image` |
+| `navigation` | singleton | system | `items`, `cta_label`, `cta_href`, `announcement_label` |
+| `footer` | singleton | system | `blurb`, `columns`, `legal_notice` |
+| `seo-defaults` | singleton | system | `meta_title`, `meta_description`, `canonical_base`, `og_image` |
 
-## Contentrain
-
-- Layout and page server loads read from the generated `#contentrain` client
-- Global site settings, navigation, footer, SEO, authors, categories, and stories are seeded in `.contentrain/`
-- Story cards now link to real internal story pages under `/stories/[slug]`
-- Static build output is ready after clone
-- The starter stays parallel to the Contentrain ecosystem model: git-backed content, explicit schemas, and generated runtime access inside the app
+Content is in English (`en`), with one file per locale under `.contentrain/content/`.
 
 ## Deploy
 
-- Netlify build command: `pnpm deploy:netlify`
-- Netlify publish directory: `build`
-- `netlify.toml` is committed in the starter root
-
-## Netlify Project Creation
+The build output is a static site in `build/`. `netlify.toml` is included: build command `pnpm deploy:netlify`, publish directory `build`, Node 22. See [USAGE.md](./USAGE.md) for Netlify CLI steps.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2FContentrain%2Fcontentrain-starter-sveltekit-editorial)
 
-Use `pnpm dlx netlify-cli init` to connect the repository for continuous deployment, or `pnpm dlx netlify-cli link` if the site already exists.
+## Contentrain
+
+- SDK, CLI, and MCP docs: [ai.contentrain.io](https://ai.contentrain.io)
+- Query SDK: [ai.contentrain.io/packages/sdk](https://ai.contentrain.io/packages/sdk)
+- Contentrain Studio: [contentrain.io/studio](https://contentrain.io/studio)
+
+## License
+
+[MIT](./LICENSE)

@@ -10,7 +10,7 @@
       year: "numeric",
     }).format(new Date(value));
 
-  const paragraphs = String(data.story.content ?? "")
+  const paragraphs = data.story.body
     .split(/\n\s*\n/g)
     .filter(Boolean);
 </script>

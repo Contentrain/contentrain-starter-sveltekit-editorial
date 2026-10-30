@@ -6,7 +6,6 @@ import type { PageServerLoad } from "./$types";
 type StoryWithRelations = BlogPost & {
   author?: Author;
   categories?: BlogCategory[];
-  content?: string;
 };
 
 export const load: PageServerLoad = ({ params }) => {
